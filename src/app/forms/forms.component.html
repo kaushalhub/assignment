@@ -1,0 +1,28 @@
+<form class="pt-5" (ngSubmit)="onsubmit()">
+        <div class="container">
+        <div class="form-row" *ngFor="let obj of FormDataService.dataarray; let i=index ">
+            <div class="form-group col-md-2">
+                <label>Name</label>
+                <input type="text" name="name{{i}}" class="form-control" [(ngModel)]="obj.name">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label>Age</label>
+                <input type="text" name="age{{i}}" class="form-control" [(ngModel)]="obj.age">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label>Class</label>
+                <input type="text" name="class{{i}}" class="form-control" [(ngModel)]="obj.class">
+            </div>
+
+            <div class="form-group col-md-2" *ngIf="i!=0">
+                <label>Remove</label><br>
+                <span class="btn btn-danger" (click)="removeForm(i)">-</span>
+            </div>
+        </div>
+        <span class="btn btn-primary" (click)="addForm()">+</span>
+
+        <button class="btn btn-success">SAVE</button>
+        </div>
+    </form> 
